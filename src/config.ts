@@ -41,11 +41,11 @@ export const config = {
         : `${window.location.protocol}//${ADMIN_API_URL}`
     }
 
-    const port = window.location.protocol.toLowerCase() === 'https:'
-      ? config.ADMIN_API_SSL_PORT
-      : config.ADMIN_API_PORT
+    // const port = window.location.protocol.toLowerCase() === 'https:' ? config.ADMIN_API_SSL_PORT : config.ADMIN_API_PORT
 
-    return `${window.location.protocol}//${window.location.hostname}:${port}`
+    //return `${window.location.protocol}//${window.location.hostname}:${port}`
+    return 'http://192.168.31.130:8001'
+
   },
 
   get ANONYMOUS_REPORTS() {

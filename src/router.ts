@@ -8,11 +8,28 @@ import { useInfoStore } from './stores/info'
 const routes: Array<RouteRecordRaw> = [
   // overview page
   {
-    name: 'overview',
+    name: 'workspace',
     path: '/',
+    component: () => import('@/pages/overview/Overview2.vue'),
+    meta: {
+      title: 'Overview',
+    },
+  },
+  {
+    name: 'overview',
+    path: '/overview',
     component: () => import('@/pages/overview/Overview.vue'),
     meta: {
       title: 'Overview',
+    },
+  },
+  // workspace create page
+  {
+    name: 'workspace-create',
+    path: '/workspaces/create',
+    component: () => import('@/pages/workspaces/workspacesCreate.vue'),
+    meta: {
+      title: 'Create Workspace',
     },
   },
 

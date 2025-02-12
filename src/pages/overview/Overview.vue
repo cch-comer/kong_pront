@@ -51,7 +51,7 @@
       </li>
     </ul>
   </KCard>
-  <KonnectCTA />
+  <!-- <KonnectCTA /> -->
 </template>
 
 <script setup lang="ts">
@@ -62,7 +62,7 @@ import {
   PlugIcon,
   KongIcon,
 } from '@kong/icons'
-import KonnectCTA from '@/components/KonnectCTA.vue'
+// import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useInfoStore } from '@/stores/info'
 import { formatVersion } from '@/utils'
@@ -221,7 +221,7 @@ $card-spacing: 32px;
   padding: 10px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $kui-color-border;
+    border-bottom: 1px solid #e0e4ea;
   }
 
   label {
@@ -238,23 +238,23 @@ $card-spacing: 32px;
   gap: 0;
 
   :deep(.card-header) {
-    padding: $kui-space-80;
+    padding: 24px;
   }
 }
 
 .resource-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid $kui-color-border;
+  border-top: 1px solid #e0e4ea;
 }
 
 .resource-item {
   .resource-link {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $kui-color-border;
+    border-bottom: 1px solid #e0e4ea;
     transition: background-color 0.3s;
-    padding: 16px $kui-space-80;
+    padding: 16px 24px;
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -265,7 +265,7 @@ $card-spacing: 32px;
   }
 
   &:nth-child(odd) .resource-link {
-    border-right: 1px solid $kui-color-border;
+    border-right: 1px solid #e0e4ea;
   }
 
   &:nth-last-child(-n+2) .resource-link {

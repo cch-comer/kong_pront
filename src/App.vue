@@ -3,13 +3,12 @@
     :sidebar-top-items="sidebarItems"
   >
     <template #navbar-right>
-      <GithubStar url="https://github.com/kong/kong" />
+      <!-- <GithubStar url="https://github.com/kong/kong" /> -->
     </template>
     <template #sidebar-header>
       <NavbarLogo />
     </template>
     <router-view />
-    <MakeAWish />
   </AppLayout>
 </template>
 
@@ -18,10 +17,10 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
-import { GithubStar } from '@kong-ui-public/misc-widgets'
+//import { GithubStar } from '@kong-ui-public/misc-widgets'
 import { useInfoStore } from '@/stores/info'
 import NavbarLogo from '@/components/NavbarLogo.vue'
-import MakeAWish from '@/components/MakeAWish.vue'
+//import MakeAWish from '@/components/MakeAWish.vue'
 
 const route = useRoute()
 const infoStore = useInfoStore()

@@ -1,8 +1,8 @@
 <template>
   <div class="brand-logo">
     <router-link
-      :to="{ name: 'overview' }"
-      title="go to overview page"
+      :to="{ name: 'workspace' }"
+      title="go to workspace page"
     >
       <img
         src="@/assets/logo.svg?external"
