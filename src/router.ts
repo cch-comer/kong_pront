@@ -50,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'overview',
     path: '/overview',
-    component: () => import('@/pages/overview/Overview.vue'),
+    component: () => import('@/pages/overview/Overview2.vue'),
     meta: {
       title: 'Overview',
     },
