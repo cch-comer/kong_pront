@@ -38,7 +38,6 @@
       <NavbarLogo />
     </template>
     <router-view />
-    <MakeAWish />
   </AppLayout>
   <router-view v-else />
 </template>

@@ -44,19 +44,19 @@ export function useAuth() {
     };
 
     const startActivityTracking = () => {
-        document.addEventListener("click", resetActivityTimer);
+        document.addEventListener("click", checkAccessToken);
     };
 
     const stopActivityTracking = () => {
-        document.removeEventListener("click", resetActivityTimer);
+        document.removeEventListener("click", checkAccessToken);
     };
 
     onMounted(() => {
-        startActivityTracking();
+        // startActivityTracking();
     });
 
     onUnmounted(() => {
-        stopActivityTracking();
+        // stopActivityTracking();
     });
 
     return { logout };
