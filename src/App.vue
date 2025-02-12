@@ -1,38 +1,66 @@
 <template>
   <AppLayout
+    v-if="!hideComponents && !hideComponents2"
     :sidebar-top-items="sidebarItems"
   >
     <template #navbar-right>
-      <!-- <GithubStar url="https://github.com/kong/kong" /> -->
+      <div style="color: #C20A0A">
+        {{ username }}
+      </div>
+      <k-button
+        size="large"
+        @click="logout"
+      >
+        Logout
+      </k-button>
     </template>
     <template #sidebar-header>
       <NavbarLogo />
     </template>
     <router-view />
   </AppLayout>
+  <AppLayout
+    v-else-if="!hideComponents && hideComponents2"
+    :sidebar-top-items="sidebarItems2"
+  >
+    <template #navbar-right>
+      <div style="color: #C20A0A">
+        {{ username }}
+      </div>
+      <k-button
+        size="large"
+        @click="logout"
+      >
+        Logout
+      </k-button>
+    </template>
+    <template #sidebar-header>
+      <NavbarLogo />
+    </template>
+    <router-view />
+    <MakeAWish />
+  </AppLayout>
+  <router-view v-else />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { useAuth } from '@/useAuth'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
-//import { GithubStar } from '@kong-ui-public/misc-widgets'
 import { useInfoStore } from '@/stores/info'
 import NavbarLogo from '@/components/NavbarLogo.vue'
-//import MakeAWish from '@/components/MakeAWish.vue'
 
+const { logout } = useAuth()
 const route = useRoute()
 const infoStore = useInfoStore()
 const { isHybridMode } = storeToRefs(infoStore)
+const username = ref('')
+const hideComponents = computed(() => route.name === 'login')
+const hideComponents2 = computed(() => route.name === 'overview' || route.name === 'portals' || route.name === 'vitals' || route.name === 'users')
 
 const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
-  {
-    name: 'Overview',
-    to: { name: 'overview' },
-    key: 'Overview',
-    active: route.name === 'overview',
-  },
   {
     name: 'Gateway Services',
     to: { name: 'service-list' },
@@ -112,6 +140,42 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
       : []
   ),
 ])
+
+const sidebarItems2 = computed<Array<SidebarPrimaryItem>>(() => [
+  {
+    name: 'Workspace',
+    to: { name: 'overview' },
+    key: 'overview',
+    active: route.name === 'overview',
+  },
+  {
+    name: 'Dev Portals',
+    to: { name: 'portals' },
+    key: 'portals',
+    active: route.name === 'portals',
+  },
+  {
+    name: 'Vitals',
+    to: { name: 'vitals' },
+    key: 'vitals',
+    active: route.name === 'vitals',
+  },
+  {
+    name: 'Users',
+    to: { name: 'users' },
+    key: 'users',
+    active: route.name === 'users',
+  },
+  {
+    name: '화면 전환',
+    to: { name: 'service-list' },
+    key: 'services',
+    active: route.name === 'services',
+  },
+])
+onMounted(() => {
+  username.value = localStorage.getItem('username') || 'Guest'
+})
 </script>
 
 <style scoped lang="scss">

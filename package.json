@@ -44,10 +44,17 @@
     "@kong/kongponents": "^9.18.3",
     "@material-design-icons/font": "^0.14.13",
     "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.13",
+    "express": "^4.21.2",
     "monaco-editor": "0.52.0",
+    "oauth2-server": "^3.1.1",
+    "pg": "^8.13.1",
     "pinia": "^2.2.2",
     "vue": "^3.5.12",
+    "vue-cookies": "^1.8.6",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {

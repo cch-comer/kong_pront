@@ -47,12 +47,11 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/kconfig.js': process.env.KONG_GUI_URL || 'http://127.0.0.1:8002',
       '/workspaces': {
         target: 'http://192.168.31.130:8000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/workspaces/, '/workspaces')
-      }
+        rewrite: (path) => path.replace(/^\/workspaces/, '/workspaces'),
+      },
     },
     port: 8080,
   },
